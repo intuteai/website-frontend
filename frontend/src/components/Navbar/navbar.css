@@ -1,0 +1,71 @@
+/* Transparent Navbar (Initial State) */
+.navbar-transparent {
+  background: linear-gradient(135deg, #121212, #1a1a1a) !important;
+  transition: background-color 0.4s ease-in-out;
+}
+
+/* Navbar when scrolled down */
+.navbar-colored {
+  background: rgba(26, 26, 26, 0.9) !important; /* Slightly darker when scrolled */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.4s ease-in-out;
+}
+
+/* Navbar brand styling */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #f3ec78 !important;
+}
+
+/* Navbar links */
+.navbar-nav .nav-link {
+  color: white !important;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+/* Navbar links hover effect */
+.navbar-nav .nav-link:hover {
+  color: #ff6b6b !important; /* Accent color */
+}
+
+.navbar-logo {
+  width: 150px;
+}
+
+/* Style for the Bootstrap navbar-toggler icon */
+.custom-toggler {
+  border: none;
+  background: transparent;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+  z-index: 1000;
+}
+
+.navbar-toggler-icon {
+  width: 28px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 28px;
+  height: 3px;
+  background-color: #ffffff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+

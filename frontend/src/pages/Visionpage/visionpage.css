@@ -1,0 +1,208 @@
+.page-container {
+  background: linear-gradient(135deg, #121212, #1a1a1a);
+  color: #fff;
+  text-align: center;
+  padding: 0;
+}
+
+.vision-banner {
+  width: 100%;
+  height: 85vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 60px;
+}
+
+.vision-banner::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.tagline-box-1,
+.tagline-box-2 {
+  position: relative;
+  z-index: 2;
+  color: #fff200;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: right;
+  width: 100%;
+}
+
+.tagline-box-1 {
+  font-size: 80px;
+  font-weight: 700;
+  padding-top: 150px;
+  line-height: 1.2;
+}
+
+.tagline-box-2 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-top: -10px;
+}
+
+.vision-carousel-section {
+  max-width: 1400px;
+  margin: 80px auto 60px;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.vision-heading {
+  font-size: 2.5rem;
+  color: #f3ec78;
+  margin-bottom: 40px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.vision-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+
+.vision-card {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  width: 400px;
+  min-height: 520px;
+  padding: 30px;
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.carousel-title {
+  color: #f3ec78;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.carousel-content {
+  color: #ddd;
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+
+/* Solution Section */
+.solution-hero {
+  padding: 60px 20px 30px;
+  text-align: center;
+}
+
+.solution-title {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #f3ec78;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.solution-subtitle {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 20px auto 0;
+  line-height: 1.6;
+  color: #ddd;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.solution-sections {
+  width: 100%;
+}
+
+.solution-section {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.solution-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.solution-content {
+  position: relative;
+  max-width: 800px;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2);
+  color: #fff;
+  text-align: center;
+}
+
+.solution-content h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #f3ec78;
+}
+
+.solution-details p {
+  font-size: 1rem;
+  margin: 5px 0;
+  color: #ddd;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .tagline-box-1 {
+    font-size: 55px;
+    padding-top: 100px;
+  }
+  .tagline-box-2 {
+    font-size: 40px;
+  }
+  .vision-card {
+    width: 90%;
+    max-width: 360px;
+  }
+  .solution-section {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .tagline-box-1 {
+    font-size: 36px;
+    padding-top: 80px;
+  }
+  .tagline-box-2 {
+    font-size: 26px;
+  }
+  .carousel-image {
+    height: 180px;
+  }
+  .solution-content h2 {
+    font-size: 1.8rem;
+  }
+  .solution-details p {
+    font-size: 0.95rem;
+  }
+}
