@@ -21,7 +21,7 @@ const ContactUs = () => {
     setStatusMessage("Sending...");
 
     try {
-      await axios.post("http://localhost:5000/contact", formData, {
+      await axios.post("https://intute.in/api/contact", formData, {
         headers: { "Content-Type": "application/json" },
       });
       setStatusMessage("Message sent successfully!");

@@ -62,7 +62,7 @@ const Navbar = () => {
               <Link className="nav-link" to="/team" onClick={closeNavbar}>Our Team</Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/contact" onClick={closeNavbar}>Contact</Link>
+              <Link className="nav-link" to="/api/contact" onClick={closeNavbar}>Contact</Link>
             </li>
           </ul>
         </div>
