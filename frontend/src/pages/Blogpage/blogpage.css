@@ -14,9 +14,10 @@
   }
   
   .article-content {
-    margin: 50px;
+    margin: 100px;
     padding: 0 20px;
-    text-align: left;
+    text-align: justify;
+
   }
   
   .article-title {

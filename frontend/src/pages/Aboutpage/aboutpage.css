@@ -1,7 +1,16 @@
-/* WHO WE ARE Section (Full Width) */
+:root {
+  --highlight: #f3ec78;
+  --bg-dark: #000000;
+  --bg-panel: #0f0f0f;
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --card-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+  --font-family: system-ui, sans-serif;
+}
+
+/* WHO WE ARE Section */
 .who-wrapper {
-  width: 100%;
-  background-color: #121212;
+  background: var(--bg-dark);
   padding: 60px 20px;
   display: flex;
   justify-content: center;
@@ -10,139 +19,104 @@
 .who-we-are {
   max-width: 1200px;
   width: 100%;
-  text-align: left;
+  background: var(--bg-panel);
+  border: 2px solid #1e1e1e;
+  border-radius: 50px;
+  box-shadow: var(--card-shadow);
 }
 
 .who-we-are-title {
-  font-size: 2.5rem;
-  color: #f3ec78;
-  margin-bottom: 20px;
-  margin-top: 60px;
+  font-size: 2rem;
   font-weight: bold;
+  color: var(--highlight);
+  padding: 40px 80px 20px;
 }
 
 .who-we-are p {
-  font-size: 1.1rem;
+  color: var(--text-muted);
+  font-size: 1.05rem;
   line-height: 1.8;
-  color: #ddd;
+  text-align: justify;
+  margin: 0 80px;
+  padding-bottom: 40px;
 }
 
-/* MAIN ABOUT SECTION */
+/* Core Values Section */
 .about-container {
-  color: #fff;
-  background: linear-gradient(135deg, #121212, #1a1a1a);
-  padding: 60px 80px;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  padding: 60px 5%;
 }
 
-/* Core Title */
 .core-title {
   text-align: center;
   font-size: 2.5rem;
   font-weight: 700;
-  color: #f3ec78;
-  margin-bottom: 90px;
+  color: var(--highlight);
+  margin-bottom: 80px;
 }
 
-/* Icon-Based Core Grid */
 .core-grid {
   display: flex;
-  justify-content: center;
-  gap: 150px;
   flex-wrap: wrap;
-  margin-top: 40px;
+  justify-content: center;
+  gap: 80px;
 }
 
 .icon-card {
-  border: 0.5px solid grey;
-  border-radius: 12px;
+  background: var(--bg-panel);
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 25px 20px;
   width: 290px;
   height: 370px;
-  padding: 25px 20px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background-color: #1e1e1e;
+  transition: 0.3s ease;
+  box-shadow: var(--card-shadow);
 }
 
 .icon-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.05);
 }
 
 .icon-card h4 {
-  margin-top: 15px;
-  color: #f3ec78;
+  color: var(--highlight);
   font-size: 1.5rem;
+  margin-top: 20px;
 }
 
 .icon-card p {
-  font-size: 0.95rem;
-  color: silver;
+  color: #bbb;
+  font-size: 1rem;
   margin-top: 10px;
-}
-
-/* Our Developed Products Section */
-.products-section {
-  text-align: center;
-  margin-top: 30px;
-  padding: 80px 20px;
-  background-color: #181818;
-}
-
-.products-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #f3ec78;
-  margin-bottom: 20px;
-}
-
-.products-description {
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto 40px;
-  color: #ccc;
-}
-
-.video-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.product-video {
-  width: 40%;
-  height: 500px;
-  max-width: 300px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 /* Autonomous Section */
 .autonomous-section {
-  width: 100%;
-  background-color: #0f0f0f;
+  background: var(--bg-dark);
+  padding: 100px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 20px;
   margin-top: 80px;
 }
 
 .autonomous-background {
   background: url("../../assets/autonomous.jpeg") center/cover no-repeat;
-  border-radius: 12px;
+  border-radius: 16px;
   width: 100%;
   max-width: 1200px;
   height: 450px;
   position: relative;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .autonomous-background::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
-  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 16px;
   z-index: 1;
 }
 
@@ -155,7 +129,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px 60px;
-  color: #fff;
+  color: var(--text-main);
   text-align: center;
 }
 
@@ -163,78 +137,38 @@
   font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 20px;
-  color: #fff;
 }
 
 .autonomous-button {
-  background: transparent;
-  color: #f3ec78;
-  border: 2px solid #f3ec78;
-  padding: 12px 25px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 700;
   font-size: 1rem;
-  transition: all 0.2s ease-in-out;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: 2px solid var(--highlight);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--highlight);
+  transition: 0.3s ease;
+  text-decoration: none;
 }
 
 .autonomous-button:hover {
-  background: #f3ec78;
+  background: var(--highlight);
   color: #121212;
 }
 
-/* Responsive Design - Tablet */
-@media (max-width: 1024px) {
-  .about-container {
-    padding: 40px;
-  }
-
-  .who-we-are {
-    padding: 0 30px;
-    text-align: center;
-  }
-
-  .who-we-are-title {
-    font-size: 2rem;
-  }
-
-  .who-we-are p {
-    font-size: 1.05rem;
-  }
-
-  .core-title,
-  .products-title,
-  .autonomous-title {
-    font-size: 2.2rem;
-  }
-
-  .core-grid {
-    gap: 80px;
-  }
-}
-
-/* Responsive Design - Mobile */
+/* Responsive */
 @media (max-width: 768px) {
-  .about-container {
-    padding: 20px;
-  }
-
-  .who-we-are {
-    padding: 0 20px;
-  }
-
   .who-we-are-title {
     font-size: 1.6rem;
-    margin-top: 40px;
+    padding: 30px 20px 10px;
   }
 
   .who-we-are p {
+    margin: 0 20px;
     font-size: 1rem;
   }
 
-  .core-title,
-  .products-title,
-  .autonomous-title {
+  .core-title {
     font-size: 1.8rem;
   }
 
@@ -250,9 +184,5 @@
   .autonomous-button {
     font-size: 0.95rem;
     padding: 10px 20px;
-  }
-
-  .product-video {
-    width: 100%;
   }
 }

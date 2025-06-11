@@ -7,6 +7,7 @@ import Contact from "./pages/Contactpage/contactPage";
 import Teampage from "./pages/TeamPage/teampage";
 import VisionPage from "./pages/Visionpage/visionpage";
 import BlogPage from "./pages/Blogpage/blogpage";
+import Demo from "./pages/DemoPage/demoPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -21,6 +22,7 @@ const App = () => {
         <Route path="/team" element={<Teampage />} />
         <Route path="/vision" element={<VisionPage />} />
         <Route path="/blog" element={<BlogPage />} />
+        <Route path="/get-demo" element={<Demo />} />
       </Routes>
       <Footer />
     </Router>

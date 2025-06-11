@@ -1,109 +1,141 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { FaLinkedinIn } from "react-icons/fa";
 import "./teampage.css";
+
+// Images
 import aryanImage from "../../assets/images/Aryan.jpeg";
 import kanishkImage from "../../assets/images/Kanishk.jpg";
 import mayankImage from "../../assets/images/Mayank.jpeg";
-import muditImage from "../../assets/images/Mudit.jpeg";
 import prathamImage from "../../assets/images/Pratham.jpeg";
 import rahulImage from "../../assets/images/Rahul.jpeg";
 import rishikaImage from "../../assets/images/Rishika.jpg";
 import saatwikImage from "../../assets/images/Saatwik.jpeg";
-import yashImage from "../../assets/images/Yash.jpeg";
 import maadhavImage from "../../assets/images/Maadhav.jpeg";
 import kushImage from "../../assets/images/Kush.jpg";
-import mrinalImage from "../../assets/images/Mrinal.jpg";
 import akshayImage from "../../assets/images/Akshay.jpg";
 
+// Team data
 const teamMembers = [
   {
     name: "Akshay Aggarwal",
     role: "Founder",
     description:
-      "17+ years entrepreneurial career in Automation systems, Electric vehicle traction control & system integration",
+      "17+ years entrepreneurial career in Automation systems, Electric vehicle traction control & system integration.",
     image: akshayImage,
+    linkedin: "https://www.linkedin.com/in/akshay-aggarwal-4072637/",
   },
   {
     name: "Saatwik",
-    role: "Software Engineer",
+    role: "Software Developer",
     description: "Full Stack Developer & Cloud Manager",
     image: saatwikImage,
+    linkedin: "https://www.linkedin.com/in/saatwik",
   },
   {
     name: "Rishika",
     role: "System Architect",
     description: "Front-end Developer, UI/UX Designer",
     image: rishikaImage,
+    linkedin: "https://www.linkedin.com/in/rishika",
   },
   {
     name: "Maadhav",
     role: "Hardware Designer",
     description: "Electronic Circuit & PCB Designer",
     image: maadhavImage,
-  },
-  {
-    name: "Mrinal",
-    role: "Fabrication Engineer",
-    description: "Thermal Analysis",
-    image: mrinalImage,
-  },
-  {
-    name: "Mudit",
-    role: "Design Engineer",
-    description: "",
-    image: muditImage,
-  },
-  {
-    name: "Aryan",
-    role: "Data Engineer",
-    description: "",
-    image: aryanImage,
-  },
-  {
-    name: "Kanishk",
-    role: "Data Analyst",
-    description: "",
-    image: kanishkImage,
-  },
-  {
-    name: "Yash",
-    role: "Simulations Engineer",
-    description: "",
-    image: yashImage,
-  },
-  {
-    name: "Pratham",
-    role: "Application Developer",
-    description: "",
-    image: prathamImage,
-  },
-  {
-    name: "Kush",
-    role: "Design Engineer",
-    description: "",
-    image: kushImage,
+    linkedin: "#",
   },
   {
     name: "Mayank",
     role: "Embedded Engineer",
     description: "",
     image: mayankImage,
+    linkedin: "#",
+  },
+  {
+    name: "Pratham",
+    role: "Application Developer",
+    description: "",
+    image: prathamImage,
+    linkedin: "#",
+  },
+  {
+    name: "Aryan",
+    role: "Data Engineer",
+    description: "",
+    image: aryanImage,
+    linkedin: "#",
+  },
+  {
+    name: "Kanishk",
+    role: "Data Analyst",
+    description: "",
+    image: kanishkImage,
+    linkedin: "#",
+  },
+  {
+    name: "Kush",
+    role: "Design Engineer",
+    description: "",
+    image: kushImage,
+    linkedin: "#",
   },
   {
     name: "Rahul",
     role: "Backend Developer",
     description: "",
     image: rahulImage,
+    linkedin: "#",
   },
 ];
 
+// Team Card Component
+const renderCard = (member) => (
+  <motion.div
+    key={member.name}
+    className={`team-card ${member.role === "Founder" ? "founder-card" : ""}`}
+    whileHover={{ scale: 1.05 }}
+  >
+    {member.image ? (
+      <img
+        src={member.image}
+        alt={member.name}
+        className="team-image-rect"
+        loading="lazy"
+      />
+    ) : (
+      <div className="team-image-placeholder"></div>
+    )}
+    <h3 className="team-role">{member.role}</h3>
+    <h4 className="team-name">{member.name}</h4>
+    {member.description && (
+      <p className="team-description">{member.description}</p>
+    )}
+
+    {member.role === "Founder" && member.linkedin && (
+      <a
+        href={member.linkedin}
+        className="linkedin-icon"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`LinkedIn profile of ${member.name}`}
+      >
+        <FaLinkedinIn />
+      </a>
+    )}
+  </motion.div>
+);
+
+// Main Team Page Component
 const Teampage = () => {
   const founder = teamMembers.find((member) => member.role === "Founder");
-  const otherMembers = teamMembers.filter((member) => member.role !== "Founder");
+  const otherMembers = teamMembers.filter(
+    (member) => member.role !== "Founder"
+  );
 
   return (
     <div className="team-container">
-      {/* Header Section */}
       <motion.div
         className="team-header"
         initial={{ opacity: 0, y: -30 }}
@@ -113,36 +145,17 @@ const Teampage = () => {
         <div className="team-header-content">
           <h1 className="team-title">MEET OUR TEAM</h1>
           <p className="team-tagline">
-            We are professionals developing revolutionary mobility solutions.
+            We're a team of researchers, engineers, and operational leaders,
+            with experience spanning a variety of disciplines, all working
+            together to build reliable and robust AI systems for manufacturing.
           </p>
         </div>
-        {founder && (
-          <motion.div
-            className="founder-card"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-          >
-            {founder.image ? (
-              <img
-                src={founder.image}
-                alt={founder.name}
-                className="team-image"
-                loading="lazy"
-              />
-            ) : (
-              <div className="team-image-placeholder"></div>
-            )}
-            <h3 className="team-role">{founder.role}</h3>
-            <h4 className="team-name">{founder.name}</h4>
-            {founder.description && (
-              <p className="founder-description">{founder.description}</p>
-            )}
-          </motion.div>
-        )}
+
+        {founder && renderCard(founder)}
       </motion.div>
 
-      {/* Team Grid Section */}
+      <hr className="team-divider" />
+
       <motion.div
         className="team-grid"
         initial={{ opacity: 0, y: 30 }}
@@ -150,29 +163,7 @@ const Teampage = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        {otherMembers.map((member, index) => (
-          <motion.div
-            key={index}
-            className="team-card"
-            whileHover={{ scale: 1.05 }}
-          >
-            {member.image ? (
-              <img
-                src={member.image}
-                alt={member.name}
-                className="team-image"
-                loading="lazy"
-              />
-            ) : (
-              <div className="team-image-placeholder"></div>
-            )}
-            <h3 className="team-role">{member.role}</h3>
-            <h4 className="team-name">{member.name}</h4>
-            {member.description && (
-              <p className="team-description">{member.description}</p>
-            )}
-          </motion.div>
-        ))}
+        {otherMembers.map(renderCard)}
       </motion.div>
     </div>
   );

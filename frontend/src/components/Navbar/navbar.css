@@ -1,12 +1,12 @@
 /* Transparent Navbar (Initial State) */
 .navbar-transparent {
-  background: linear-gradient(135deg, #121212, #1a1a1a) !important;
+  background: linear-gradient(135deg, #000000) !important;
   transition: background-color 0.4s ease-in-out;
 }
 
 /* Navbar when scrolled down */
 .navbar-colored {
-  background: rgba(26, 26, 26, 0.9) !important; /* Slightly darker when scrolled */
+  background: rgba(0,0,0,0) !important;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: background 0.4s ease-in-out;
 }
@@ -28,11 +28,23 @@
 
 /* Navbar links hover effect */
 .navbar-nav .nav-link:hover {
-  color: #ff6b6b !important; /* Accent color */
+  color: #a8a8a8 !important;
 }
 
+/* Active link highlight */
+.nav-link.active-link {
+  color: #a8a8a8 !important;
+}
+
+/* Logo styling with click + hover effect */
 .navbar-logo {
   width: 150px;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.navbar-logo:hover {
+  transform: scale(1.05);
 }
 
 /* Style for the Bootstrap navbar-toggler icon */
@@ -67,5 +79,3 @@
   border-radius: 2px;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
-
-

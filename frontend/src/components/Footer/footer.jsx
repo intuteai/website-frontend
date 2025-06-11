@@ -17,6 +17,7 @@ const Footer = () => {
           <p className="footer-heading">Quick Links</p>
           <a href="/" className="footer-link">Home</a>
           <a href="/about" className="footer-link">About Us</a>
+          <a href="/vision" className="footer-link">Vision</a>
           <a href="/contact" className="footer-link">Contact Us</a>
         </div>
 
@@ -41,8 +42,8 @@ const Footer = () => {
       {/* Right: Contact Info */}
       <div className="footer-right">
         <p className="footer-contact">
-          <FaEnvelope size={18} /> info@intute.ai <br /><br />
-          <FaMapMarkerAlt size={18} />A5, Sector-68, NOIDA - 201303 <br /> Uttar Pradesh, India
+          <FaEnvelope size={25} /> info@intute.ai <br /><br />
+          <FaMapMarkerAlt size={25} />A5, Sector-68, NOIDA - 201303 <br /> Uttar Pradesh, India
         </p>
       </div>
 

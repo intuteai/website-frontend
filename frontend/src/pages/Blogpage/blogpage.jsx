@@ -47,7 +47,7 @@ const BlogPage = () => {
           <hr />
           <h3>The Indian Driving Ecosystem: A Unique Challenge</h3>
           <p>
-            India’s roads are a melting pot of vehicles—cars, bikes, trucks,
+            India's roads are a melting pot of vehicles—cars, bikes, trucks,
             rickshaws, pedestrians, and even animals—often sharing the same
             space with minimal lane discipline. Traffic laws are loosely
             enforced, and driving behavior tends to be highly improvised. <br />
@@ -170,6 +170,7 @@ const BlogPage = () => {
             autonomous mobility that works for its roads, its people, and its
             pace.
           </p>
+          <hr />
           <h3>Conclusion: A Different Road to Autonomy</h3>
           <p>
             Autonomous driving in India isn’t a question of if, but how. The
@@ -193,7 +194,7 @@ const BlogPage = () => {
           </p>
         </p>
         <div className="author">
-          <p><strong>By Akshay Aggarwal</strong><br />- Founder Intute.AI Technologies Pvt. Ltd.</p> 
+          <p><strong>By Akshay Aggarwal</strong><br />- Founder, Intute.AI Technologies Pvt. Ltd.</p> 
         </div>
       </motion.div>
     </div>
