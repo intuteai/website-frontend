@@ -8,7 +8,7 @@
   --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
 }
 
-/* === MAIN DEMO SECTION === */
+/* === SECTION === */
 .demo-feature-section {
   background: var(--bg-gradient);
   padding: 80px 40px;
@@ -30,7 +30,6 @@
   font-weight: 700;
   margin-bottom: 12px;
   background: var(--highlight);
-  background-clip: text;
   -webkit-background-clip: text;
   color: transparent;
   -webkit-text-fill-color: transparent;
@@ -56,7 +55,7 @@
   border-radius: var(--border-radius);
   overflow: hidden;
   box-shadow: var(--box-shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+  transition: transform 0.3s ease;
   cursor: pointer;
   display: flex;
   flex-direction: column;
@@ -69,7 +68,6 @@
   transform: translateY(-5px);
   background: rgba(255, 255, 255, 0.04);
   backdrop-filter: blur(3px);
-  box-shadow: 0 6px 18px rgba(255, 255, 255, 0.05);
 }
 
 /* === IMAGE === */
@@ -85,47 +83,35 @@
   height: 100%;
   object-fit: cover;
   object-position: top center;
-  display: block;
 }
 
 .demo-feature-image-container img.no-crop {
   object-fit: contain;
-  object-position: center center;
+  object-position: center;
   background: #000;
 }
 
-.demo-feature-image-container::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
-  z-index: 1;
-}
-
-/* === TITLE === */
+/* === CARD TITLE (NO DARK GRADIENT) === */
 .demo-feature-card-title {
   position: absolute;
-  bottom: 12px;
-  left: 16px;
-  right: 16px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
   z-index: 2;
   color: #fff;
-  font-size: 1.4rem;
-  font-weight: 700;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 1.5rem;
+  font-weight: 800;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.8), 0 4px 10px rgba(0, 0, 0, 0.4);
+  line-height: 1.3;
 }
 
-/* === CONTENT === */
+
+/* === CARD CONTENT === */
 .demo-feature-card-content {
   padding: 20px;
   color: var(--text-muted);
-  text-align: left;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   flex: 1;
 }
 
@@ -136,9 +122,8 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis;
-  transition: max-height 0.3s ease;
   max-height: 4.8em;
+  transition: max-height 0.3s ease;
 }
 
 .demo-card-description.expanded {
@@ -149,25 +134,21 @@
 
 .demo-read-toggle {
   font-size: 0.95rem;
-  font-weight: 500;
   color: var(--highlight);
   text-decoration: underline;
-  cursor: pointer;
-  display: inline-block;
   margin-top: 4px;
   margin-bottom: 12px;
+  cursor: pointer;
 }
 
 .demo-feature-card-link {
   color: var(--highlight);
-  font-weight: 500;
   text-decoration: underline;
-  display: inline-block;
+  font-weight: 500;
   margin-top: auto;
-  padding-top: 4px;
 }
 
-/* === MODAL === */
+/* === VIDEO MODAL === */
 .demo-video-modal {
   position: fixed;
   top: 0;
@@ -186,13 +167,16 @@
 
 .demo-video-container {
   position: relative;
-  max-height: 90vh;
   width: 100%;
   max-width: 400px;
+  animation: modalFadeIn 0.4s ease-out;
   display: flex;
   justify-content: center;
   align-items: center;
-  animation: modalFadeIn 0.4s ease-out;
+}
+
+.demo-video-container.landscape-modal {
+  max-width: 900px;
 }
 
 .demo-phone-frame {
@@ -204,8 +188,8 @@
   width: 100%;
   aspect-ratio: 9 / 16;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   position: relative;
 }
 
@@ -225,10 +209,17 @@
 .demo-phone-frame video {
   width: 100%;
   height: auto;
-  border-radius: 20px;
   object-fit: contain;
+  border-radius: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  display: block;
+}
+
+.demo-phone-frame.landscape-video {
+  aspect-ratio: 16 / 9;
+  padding: 0;
+  border-radius: 16px;
+  background: #000;
+  border: 8px solid #333;
 }
 
 .demo-close-button {
@@ -237,16 +228,16 @@
   right: -12px;
   background: #fff;
   border: none;
-  font-size: 1.5rem;
   border-radius: 50%;
+  font-size: 1.5rem;
   width: 36px;
   height: 36px;
   cursor: pointer;
-  z-index: 10;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  z-index: 10;
 }
 
-/* === PRODUCT 3 SECTION === */
+/* === PRODUCT 3 === */
 .demo-feature-highlight {
   background: linear-gradient(145deg, #1b1b1b, #101010);
   padding: 60px 20px;
@@ -331,15 +322,6 @@
     font-size: 1rem;
   }
 
-  .demo-close-button {
-    top: 10px;
-    right: 10px;
-  }
-
-  .demo-phone-frame {
-    max-width: 90vw;
-  }
-
   .demo-feature-card {
     min-height: 460px;
   }
@@ -356,6 +338,10 @@
     padding: 16px;
   }
 
+  .demo-phone-frame {
+    max-width: 90vw;
+  }
+
   .demo-highlight-wrapper {
     flex-direction: column;
     text-align: center;
@@ -369,3 +355,5 @@
     margin: 20px auto 0;
   }
 }
+
+

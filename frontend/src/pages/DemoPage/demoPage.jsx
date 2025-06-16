@@ -5,22 +5,25 @@ import "./demoPage.css";
 import img from "../../assets/images/driver-distraction.jpg";
 import img1 from "../../assets/images/Dashboard.jpg";
 import img2 from "../../assets/images/marble-detection.jpg";
-import video1 from "../../assets/video.mp4";
+import video1 from "../../assets/driver_detection_video.mp4";
+import video2 from "../../assets/dashboard_video_2.mp4";
 
 const features = [
   {
-    title: "Customisable Workflows",
+    title: "Driver Distraction Detection",
     description:
-      "Tailor workflows to specific manufacturing needs using flexible, easily adjustable configurations that maintain efficiency and adaptability.",
+      "An AI-powered system that monitors driver behavior in real-time to detect signs of distraction, such as phone use or drowsiness and provides instant alerts to enhance road safety.",
     image: img,
     video: video1,
+    noCrop: false,
   },
   {
-    title: "Another Feature",
+    title: "Advanced EV Dashboard",
     description:
-      "Another example feature using the same video or a different one.",
+      "A real-time dashboard displaying key EV parameters such as motor RPM, battery level, voltage, temperature and more with detailed analytics and fault detection.",
     image: img1,
-    video: video1,
+    video: video2,
+    noCrop: true,
   },
 ];
 
@@ -29,6 +32,7 @@ const FeatureCards = () => {
   const [expanded, setExpanded] = useState(null);
 
   const closeModal = () => setSelectedVideo(null);
+  const isLandscape = selectedVideo === video2;
 
   return (
     <>
@@ -52,7 +56,7 @@ const FeatureCards = () => {
                 <img
                   src={item.image}
                   alt={item.title}
-                  className={item.title === "Another Feature" ? "no-crop" : ""}
+                  className={item.noCrop ? "no-crop" : ""}
                 />
                 <div className="demo-feature-card-title">{item.title}</div>
               </div>
@@ -80,6 +84,7 @@ const FeatureCards = () => {
           ))}
         </div>
 
+        {/* Product 3 Section */}
         <section className="demo-feature-highlight">
           <h2 className="demo-highlight-heading">Marble-Detection</h2>
 
@@ -99,17 +104,23 @@ const FeatureCards = () => {
         </section>
       </section>
 
-      {/* Modal Video Overlay */}
+      {/* Modal for Video Preview */}
       {selectedVideo && (
         <div className="demo-video-modal" onClick={closeModal}>
           <div
-            className="demo-video-container"
+            className={`demo-video-container ${
+              isLandscape ? "landscape-modal" : ""
+            }`}
             onClick={(e) => e.stopPropagation()}
           >
             <button className="demo-close-button" onClick={closeModal}>
               ✕
             </button>
-            <div className="demo-phone-frame">
+            <div
+              className={`demo-phone-frame ${
+                isLandscape ? "landscape-video" : ""
+              }`}
+            >
               <video controls autoPlay>
                 <source src={selectedVideo} type="video/mp4" />
                 Your browser does not support the video tag.
