@@ -14,6 +14,7 @@ import saatwikImage from "../../assets/images/Saatwik.jpeg";
 import maadhavImage from "../../assets/images/Maadhav.jpeg";
 import kushImage from "../../assets/images/Kush.jpg";
 import akshayImage from "../../assets/images/Akshay.jpg";
+import teamMeetingImage from "../../assets/images/team-meeting.jpg";
 
 // Team data
 const teamMembers = [
@@ -33,23 +34,9 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/saatwik",
   },
   {
-    name: "Rishika",
-    role: "System Architect",
-    description: "Front-end Developer, UI/UX Designer",
-    image: rishikaImage,
-    linkedin: "https://www.linkedin.com/in/rishika",
-  },
-  {
-    name: "Maadhav",
-    role: "Hardware Designer",
-    description: "Electronic Circuit & PCB Designer",
-    image: maadhavImage,
-    linkedin: "#",
-  },
-  {
     name: "Mayank",
     role: "Embedded Engineer",
-    description: "",
+    description: "Embedded UI Developer",
     image: mayankImage,
     linkedin: "#",
   },
@@ -60,13 +47,23 @@ const teamMembers = [
     image: prathamImage,
     linkedin: "#",
   },
+
   {
-    name: "Aryan",
-    role: "Data Engineer",
+    name: "Rishika",
+    role: "System Architect",
+    description: "Front-end Developer, UI/UX Designer",
+    image: rishikaImage,
+    linkedin: "https://www.linkedin.com/in/rishika",
+  },
+
+  {
+    name: "Rahul",
+    role: "Backend Developer",
     description: "",
-    image: aryanImage,
+    image: rahulImage,
     linkedin: "#",
   },
+
   {
     name: "Kanishk",
     role: "Data Analyst",
@@ -74,18 +71,28 @@ const teamMembers = [
     image: kanishkImage,
     linkedin: "#",
   },
+
+  {
+    name: "Maadhav",
+    role: "Hardware Designer",
+    description: "Electronic Circuit & PCB Designer",
+    image: maadhavImage,
+    linkedin: "#",
+  },
+
+  {
+    name: "Aryan",
+    role: "Data Engineer",
+    description: "",
+    image: aryanImage,
+    linkedin: "#",
+  },
+
   {
     name: "Kush",
     role: "Design Engineer",
     description: "",
     image: kushImage,
-    linkedin: "#",
-  },
-  {
-    name: "Rahul",
-    role: "Backend Developer",
-    description: "",
-    image: rahulImage,
     linkedin: "#",
   },
 ];
@@ -165,6 +172,28 @@ const Teampage = () => {
       >
         {otherMembers.map(renderCard)}
       </motion.div>
+
+      <div className="team-meeting-section">
+        <motion.div
+          className="team-meeting-image-wrapper"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <img
+            src={teamMeetingImage}
+            alt="Team Meeting"
+            className="team-meeting-image"
+          />
+          <div className="meeting-caption-overlay">
+            <p className="gradient-caption">
+              A quick glimpse of our collaborative team during a strategy
+              session.
+            </p>
+          </div>
+        </motion.div>
+      </div>
     </div>
   );
 };

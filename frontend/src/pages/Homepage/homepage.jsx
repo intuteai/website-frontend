@@ -10,7 +10,7 @@ import heroVideo from "../../assets/3d-video.mp4";
 const Home = () => {
   return (
     <>
-      <div className="home-wrapper">
+      <div className="home-wrappere">
         <div className="home-content">
           <motion.h2
             className="home-title"
@@ -82,7 +82,7 @@ const Home = () => {
         <p className="automate-subtext">
           Accelerate operations, reduce manual effort, and build intelligent systems with no programming expertise needed.
         </p>
-        <Link to="/get-demo" className="automate-button">Get a Demo</Link>
+        <Link to="/get-demo" className="automate-button">Explore Our Products</Link>
       </motion.div>
       <div className="industries-wrapper">
         <motion.div

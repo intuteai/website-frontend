@@ -1,11 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
 import bannerImage from "../../assets/images/Car.jpg";
-import video1 from "../../assets/Driver-assistance.mp4";
+import video1 from "../../assets/Intelligent Driver Assistance_1080p.mp4";
 import video2 from "../../assets/Smart-streets.mp4";
 import video3 from "../../assets/Connected-cloud.mp4";
 import video4 from "../../assets/Energy-integration.mp4";
-import video5 from "../../assets/Urban-planning.mp4";
+
 import "./visionpage.css";
 
 const aimPoints = [
@@ -15,30 +15,30 @@ const aimPoints = [
       "Empower drivers with real-time alerts, AI-based recommendations, and predictive assistance. From obstacle detection to adaptive cruise systems, we turn reactive driving into proactive mobility.",
     video: video1,
   },
-  {
-    title: "Smarter Streets for All",
-    content:
-      "Make streets safer for everyone—drivers, pedestrians, and cyclists—through connected monitoring, AI-driven analytics, and responsive alert systems that reduce accidents and improve traffic flow.",
-    video: video2,
-  },
+
   {
     title: "Connected Infrastructure",
     content:
       "Integrate AI into infrastructure, creating intelligent intersections, responsive lighting, and smart signage. This builds a collaborative, safe ecosystem for both urban and rural mobility networks.",
     video: video3,
   },
+
   {
     title: "Sustainable Energy Integration",
     content:
       "Utilize AI to optimize energy consumption across electric mobility platforms. From predictive charging to green routing, ensure every trip is both efficient and eco-friendly.",
     video: video4,
   },
+  
   {
-    title: "Data-Driven Urban Planning",
+    title: "Smarter Streets for All",
     content:
-      "Leverage mobility data to help cities make informed planning decisions. Analyze patterns, predict congestion, and propose changes that improve long-term transport sustainability.",
-    video: video5,
+      "Make streets safer for everyone—drivers, pedestrians, and cyclists—through connected monitoring, AI-driven analytics, and responsive alert systems that reduce accidents and improve traffic flow.",
+    video: video2,
   },
+
+
+
 ];
 
 const VisionPage = () => {
