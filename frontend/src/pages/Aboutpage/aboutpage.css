@@ -1,0 +1,188 @@
+:root {
+  --highlight: #f3ec78;
+  --bg-dark: #000000;
+  --bg-panel: #0f0f0f;
+  --text-main: #ffffff;
+  --text-muted: #cccccc;
+  --card-shadow: 0 10px 30px rgba(255, 255, 255, 0.05);
+  --font-family: system-ui, sans-serif;
+}
+
+/* WHO WE ARE Section */
+.who-wrapper {
+  background: var(--bg-dark);
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.who-we-are {
+  max-width: 1200px;
+  width: 100%;
+  background: var(--bg-panel);
+  border: 2px solid #1e1e1e;
+  border-radius: 50px;
+  box-shadow: var(--card-shadow);
+}
+
+.who-we-are-title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--highlight);
+  padding: 40px 80px 20px;
+}
+
+.who-we-are p {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  line-height: 1.8;
+  text-align: justify;
+  margin: 0 80px;
+  padding-bottom: 40px;
+}
+
+/* Core Values Section */
+.about-container {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  padding: 60px 5%;
+}
+
+.core-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--highlight);
+  margin-bottom: 80px;
+}
+
+.core-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 80px;
+}
+
+.icon-card {
+  background: var(--bg-panel);
+  border: 1px solid #333;
+  border-radius: 16px;
+  padding: 25px 20px;
+  width: 290px;
+  height: 370px;
+  text-align: center;
+  transition: 0.3s ease;
+  box-shadow: var(--card-shadow);
+}
+
+.icon-card:hover {
+  transform: translateY(-8px);
+}
+
+.icon-card h4 {
+  color: var(--highlight);
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.icon-card p {
+  color: #bbb;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Autonomous Section */
+.autonomous-section {
+  background: var(--bg-dark);
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 80px;
+}
+
+.autonomous-background {
+  background: url("../../assets/autonomous.jpeg") center/cover no-repeat;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 1200px;
+  height: 450px;
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.autonomous-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 16px;
+  z-index: 1;
+}
+
+.autonomous-content {
+  position: relative;
+  z-index: 2;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 60px;
+  color: var(--text-main);
+  text-align: center;
+}
+
+.autonomous-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.autonomous-button {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 30px;
+  border: 2px solid var(--highlight);
+  border-radius: 30px;
+  background: transparent;
+  color: var(--highlight);
+  transition: 0.3s ease;
+  text-decoration: none;
+}
+
+.autonomous-button:hover {
+  background: var(--highlight);
+  color: #121212;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .who-we-are-title {
+    font-size: 1.6rem;
+    padding: 30px 20px 10px;
+  }
+
+  .who-we-are p {
+    margin: 0 20px;
+    font-size: 1rem;
+  }
+
+  .core-title {
+    font-size: 1.8rem;
+  }
+
+  .icon-card {
+    width: 90%;
+    height: auto;
+  }
+
+  .autonomous-content {
+    padding: 30px;
+  }
+
+  .autonomous-button {
+    font-size: 0.95rem;
+    padding: 10px 20px;
+  }
+}
