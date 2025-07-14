@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "intute-website",
   "private": true,
   "version": "0.0.0",
@@ -50,9 +49,4 @@
     "url": "https://github.com/Saatwikkk/intute-website/issues"
   },
   "homepage": "https://github.com/Saatwikkk/intute-website#readme"
-=======
-  "dependencies": {
-    "lucide-react": "^0.513.0"
-  }
->>>>>>> 245984d4d1dbf365c41fa7f2ee62ef32f68d0b17
 }

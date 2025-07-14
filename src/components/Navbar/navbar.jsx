@@ -41,7 +41,7 @@ const Navbar = () => {
               { to: "/about", label: "About Us" },
               { to: "/vision", label: "Our Vision" },
               { to: "/team", label: "Our Team" },
-              { to: "/api/contact", label: "Contact" }
+              { to: "/contact", label: "Contact" }
             ].map(({ to, label }) => (
               <li className="nav-item me-5" key={to}>
                 <NavLink
