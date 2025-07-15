@@ -13,7 +13,7 @@ jobs:
 
     defaults:
       run:
-        working-directory: website-frontend
+        working-directory: WEBSITE-FRONTEND
 
     steps:
       - name: Checkout code
