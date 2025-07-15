@@ -41,7 +41,7 @@ const Home = () => {
             transition={{ duration: 1 }}
             viewport={{ once: true }}
           >
-            hello world Empowering innovation through AI-driven solutions.
+            hello Empowering innovation through AI-driven solutions.
             <br />
             Revolutionizing industries with advanced technologies for a
             sustainable future.
