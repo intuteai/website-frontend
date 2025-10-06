@@ -5,7 +5,6 @@ import { FaLinkedinIn } from "react-icons/fa";
 import "./teampage.css";
 
 // Images
-import aryanImage from "../../assets/images/Aryan.jpeg";
 import kanishkImage from "../../assets/images/Kanishk.jpg";
 import mayankImage from "../../assets/images/Mayank.jpeg";
 import prathamImage from "../../assets/images/Pratham.jpeg";
