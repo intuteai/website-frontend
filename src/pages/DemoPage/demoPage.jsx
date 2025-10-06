@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./demoPage.css";
 
 // Assets
@@ -7,8 +8,18 @@ import img1 from "../../assets/images/Dashboard.jpg";
 import img2 from "../../assets/images/marble-detection.jpg";
 import video1 from "../../assets/driver_detection_video.mp4";
 import video2 from "../../assets/dashboard_video_2.mp4";
+import img3 from "../../assets/images/veloconnect-lite.jpg";
+import video3 from "../../assets/veloconnect_lite.mp4";
 
 const features = [
+  {
+    title: "VeloConnect Lite",
+    description:
+      "ESP-32 based logic controller with Bluetooth, GSM, Wi-Fi and CAN Bus. 12× rugged digital inputs (9–80V), 1× analog input (0–5V), 1× relay output, USB interface, and 7–14.4V DC supply. Mobile app connectivity via Bluetooth; read battery/sensor data and command your motor over CAN—ideal for vehicle VCUs and micro PLC use.",
+    image: img3,
+    video: video3,
+    noCrop: true,
+  },
   {
     title: "Driver Distraction Detection",
     description:
@@ -30,9 +41,9 @@ const features = [
 const FeatureCards = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [expanded, setExpanded] = useState(null);
+  const [isLandscape, setIsLandscape] = useState(false);
 
   const closeModal = () => setSelectedVideo(null);
-  const isLandscape = selectedVideo === video2;
 
   return (
     <>
@@ -47,16 +58,13 @@ const FeatureCards = () => {
 
         <div className="demo-feature-card-grid">
           {features.map((item, index) => (
-            <div
-              className="demo-feature-card"
-              key={index}
-              onClick={() => setSelectedVideo(item.video)}
-            >
+            <div className="demo-feature-card" key={index}>
               <div className="demo-feature-image-container">
                 <img
                   src={item.image}
                   alt={item.title}
                   className={item.noCrop ? "no-crop" : ""}
+                  onClick={() => setSelectedVideo(item.video)}
                 />
                 <div className="demo-feature-card-title">{item.title}</div>
               </div>
@@ -78,12 +86,31 @@ const FeatureCards = () => {
                 >
                   {expanded === index ? "Read less" : "Read more"}
                 </span>
-                <a className="demo-feature-card-link">View Product →</a>
+                {item.title.startsWith("VeloConnect") ? (
+                  <Link
+                    className="demo-feature-card-link"
+                    to="/products/veloconnect-lite"
+                   onClick={(e) => e.stopPropagation()}
+                  >
+                    View Product →
+                  </Link>
+                ) : (
+  <a
+    className="demo-feature-card-link"
+    href="#"
+    onClick={(e) => {
+      e.preventDefault();        // don’t jump to top
+      e.stopPropagation();       // just in case
+      setSelectedVideo(item.video); // open the video modal
+    }}
+  >
+    View Product →
+  </a>
+)}
               </div>
             </div>
           ))}
         </div>
-
         {/* Product 3 Section */}
         <section className="demo-feature-highlight">
           <h2 className="demo-highlight-heading">Marble-Detection</h2>
@@ -121,7 +148,14 @@ const FeatureCards = () => {
                 isLandscape ? "landscape-video" : ""
               }`}
             >
-              <video controls autoPlay>
+              <video
+                controls
+                autoPlay
+                onLoadedMetadata={(e) => {
+                  const v = e.currentTarget;
+                  setIsLandscape((v.videoWidth || 16) >= (v.videoHeight || 9));
+                }}
+              >
                 <source src={selectedVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>

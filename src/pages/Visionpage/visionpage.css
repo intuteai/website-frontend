@@ -1,20 +1,41 @@
+/* ==============================
+   Vision Page – Responsive CSS
+   ============================== */
+
+/* Root theme tokens (tweak as needed) */
+:root {
+  --bg-start: #000000;
+  --bg-end: #0a0a0a;
+  --text: #ffffff;
+  --muted: #cccccc;
+  --accent: #fff200;
+
+  --card-radius: 16px;
+  --card-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  --card-shadow-hover: 0 6px 24px rgba(255, 255, 255, 0.12);
+}
+
+/* Page container */
 .page-container {
-  background: linear-gradient(135deg, #000000);
-  color: #fff;
+  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
+  color: var(--text);
   text-align: center;
   padding: 0;
 }
 
+/* ==============================
+   Banner
+   ============================== */
+
 .vision-banner {
   width: 100%;
-  height: 85vh;
+  min-height: clamp(60vh, 80vh, 90vh); /* fluid height */
   background-size: cover;
   background-position: center;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 60px;
+  display: grid;
+  place-content: center;
+  padding: clamp(16px, 6vw, 60px); /* responsive padding */
 }
 
 .vision-banner::before {
@@ -29,160 +50,163 @@
 .tagline-box-2 {
   position: relative;
   z-index: 2;
-  color: #fff200;
+  color: var(--accent);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  text-align: right;
   width: 100%;
+  text-align: right;
 }
 
 .tagline-box-1 {
-  font-size: 80px;
+  font-size: clamp(28px, 6vw, 80px);
   font-weight: 700;
-  padding-top: 150px;
-  line-height: 1.2;
+  line-height: 1.15;
+  padding-top: clamp(24px, 8vh, 150px);
 }
 
 .tagline-box-2 {
-  font-size: 60px;
+  font-size: clamp(22px, 4.5vw, 60px);
   font-weight: 700;
-  margin-top: -10px;
+  margin-top: -0.25em;
 }
 
+/* On narrow screens, center taglines */
+@media (max-width: 768px) {
+  .tagline-box-1,
+  .tagline-box-2 {
+    text-align: center;
+  }
+}
+
+/* ==============================
+   Section: Carousel Intro
+   ============================== */
+
 .vision-carousel-section {
-  max-width: 1400px;
-  margin: auto 300px;
+  max-width: 1200px;
+  margin: 0 auto; /* center, remove huge side margins */
   text-align: center;
-  padding: 0 20px;
+  padding: 0 clamp(16px, 4vw, 24px);
 }
 
 .vision-heading {
-  font-size: 3rem;
-  margin-bottom: 40px;
-  margin-top: 100px;
+  font-size: clamp(1.75rem, 3.2vw, 3rem);
+  margin-bottom: clamp(24px, 3vw, 40px);
+  margin-top: clamp(40px, 8vw, 100px);
   font-family: system-ui, sans-serif;
 }
 
 .vision-subtext {
-  font-size: 1.1rem;
-  color: #ccc;
-  max-width: 1000px;
-  margin: 0 auto 80px;
-  line-height: 1.6;
+  font-size: clamp(0.95rem, 1.2vw, 1.1rem);
+  color: var(--muted);
+  max-width: 900px;
+  margin: 0 auto clamp(40px, 6vw, 80px);
+  line-height: 1.65;
   opacity: 0.9;
+  padding: 0 clamp(8px, 1vw, 0);
 }
 
-/* === Horizontal Cards === */
+/* ==============================
+   Cards – Responsive Grid
+   ============================== */
+
 .vision-cards-container {
-  display: flex;
-  flex-direction: column;
-  gap: 60px;
-  padding-bottom: 60px;
-  align-items: center;
+  display: grid;
+  gap: clamp(20px, 4vw, 60px);
+  padding-bottom: clamp(24px, 6vw, 60px);
 }
 
+/* Card shell */
 .vision-card.horizontal-card {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1.25fr; /* collapses to single column below */
   align-items: center;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   width: 100%;
-  max-width: 1200px;
-  padding: 30px;
+  padding: clamp(16px, 2.5vw, 30px);
   text-align: left;
-  gap: 30px;
-  transition: all 0.3s ease;
+  gap: clamp(16px, 2vw, 30px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(2px);
 }
 
-.vision-card.reverse-card {
-  flex-direction: row-reverse;
+.vision-card.horizontal-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
 }
+
+/* Use order to alternate layout without flipping direction on mobile */
+.card-image-wrapper { order: 1; }
+.card-text-wrapper  { order: 2; }
+
+.vision-card.reverse-card .card-image-wrapper { order: 2; }
+.vision-card.reverse-card .card-text-wrapper  { order: 1; }
 
 .card-image-wrapper {
-  flex: 1;
-  max-width: 45%;
+  width: 100%;
 }
 
 .carousel-video-horizontal {
   width: 100%;
-  height: auto;
-  max-height: 300px;
+  aspect-ratio: 16 / 9; /* keeps consistent height across screens */
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 2px 12px rgba(255, 255, 255, 0.1);
 }
 
 .card-text-wrapper {
-  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .carousel-title {
-  padding-left: 20px;
-  font-size: 2rem;
-  font-weight: bolder;
-  margin-bottom: 15px;
+  padding-left: clamp(0px, 1vw, 20px);
+  font-size: clamp(1.25rem, 2vw, 2rem);
+  font-weight: 800;
+  margin-bottom: clamp(8px, 1vw, 15px);
 }
 
 .carousel-content {
-  padding: 20px;
-  color: #ddd;
-  font-size: 1.15rem;
+  padding: clamp(8px, 1.5vw, 20px);
+  color: #dddddd;
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
   line-height: 1.7;
   text-align: justify;
 }
 
-/* === Responsive Styles === */
+/* ===== Breakpoints ===== */
+
+/* Stack cards on medium screens */
 @media (max-width: 1024px) {
-  .tagline-box-1 {
-    font-size: 55px;
-    padding-top: 100px;
+  .vision-card.horizontal-card {
+    grid-template-columns: 1fr; /* stack */
+    text-align: center;
   }
-
-  .tagline-box-2 {
-    font-size: 40px;
-  }
-
-  .carousel-title {
-    font-size: 1.7rem;
-  }
-
   .carousel-content {
-    font-size: 1.05rem;
+    text-align: center;
   }
 }
 
+/* Tighten padding on small screens */
 @media (max-width: 768px) {
-  .tagline-box-1 {
-    font-size: 36px;
-    padding-top: 80px;
+  .vision-card.horizontal-card {
+    padding: 16px;
   }
-
-  .tagline-box-2 {
-    font-size: 26px;
-  }
-
-  .vision-card.horizontal-card,
-  .vision-card.reverse-card {
-    flex-direction: column !important;
-    text-align: center;
-    padding: 20px;
-  }
-
-  .card-image-wrapper {
-    max-width: 100%;
-  }
-
   .carousel-video-horizontal {
-    max-height: 200px;
+    /* keep 16:9 via aspect-ratio; no hard max-height needed */
   }
+}
 
-  .carousel-title {
-    font-size: 1.5rem;
-  }
+/* ==============================
+   Motion/Transition Accessibility
+   ============================== */
 
-  .carousel-content {
-    text-align: center;
+@media (prefers-reduced-motion: reduce) {
+  .vision-card.horizontal-card,
+  .vision-card.horizontal-card:hover {
+    transition: none !important;
+    transform: none !important;
   }
 }

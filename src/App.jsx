@@ -8,6 +8,7 @@ import Teampage from "./pages/TeamPage/teampage";
 import VisionPage from "./pages/Visionpage/visionpage";
 import BlogPage from "./pages/Blogpage/blogpage";
 import Demo from "./pages/DemoPage/demoPage";
+import VeloConnectLite from "./pages/VeloConnectLite/VeloConnectLite"; // ⬅️ NEW
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 
@@ -23,6 +24,8 @@ const App = () => {
         <Route path="/vision" element={<VisionPage />} />
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/get-demo" element={<Demo />} />
+        {/* NEW product page route */}
+        <Route path="/products/veloconnect-lite" element={<VeloConnectLite />} />
       </Routes>
       <Footer />
     </Router>

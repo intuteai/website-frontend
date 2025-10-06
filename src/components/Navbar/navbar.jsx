@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+import { FaBars, FaTimes } from "react-icons/fa";
 import intuteLogo from "../../assets/intuteLogo.png";
 import "./navbar.css";
 
@@ -30,9 +31,9 @@ const Navbar = () => {
           <img src={intuteLogo} alt="Intute.ai Logo" className="navbar-logo" />
         </NavLink>
 
-        <button className="navbar-toggler" type="button" onClick={toggleNavbar}>
-          <span className="navbar-toggler-icon"></span>
-        </button>
+       <button className="navbar-toggler" type="button" onClick={toggleNavbar}>
+  {isNavOpen ? <FaTimes size={24} color="#fff" /> : <FaBars size={24} color="#fff" />}
+</button>
 
         <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`} id="navbarNav">
           <ul className="navbar-nav ms-auto">
@@ -40,6 +41,7 @@ const Navbar = () => {
               { to: "/", label: "Home" },
               { to: "/about", label: "About Us" },
               { to: "/vision", label: "Our Vision" },
+              { to: "/get-demo", label: "Products"},
               { to: "/team", label: "Our Team" },
               { to: "/contact", label: "Contact" }
             ].map(({ to, label }) => (
